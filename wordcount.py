@@ -3,12 +3,17 @@
 def count_words(filename):
     
     text = open(filename)
-    all_words = []
-
+    word_count = {}
+   
     for line in text:
+
         line = line.rstrip()
         words = line.split(" ")
-        print("words: ", words)
         
-        
-    print("ALL WORDS: ", all_words)
+        #iterate over words and add into word_count dict
+        for word in words:
+
+            word = word.rstrip("?!.,")
+            word_count[word] = word_count.get(word, 0) + 1
+    
+    print(word_count)
